@@ -33,7 +33,10 @@ if (process.env.NODE_ENV === 'production') {
   }
 
   config.plugins.push(
-    new ExtractTextPlugin('styles.css'),
+    new ExtractTextPlugin({
+      filename:'styles.css',
+      allChunks: true
+    }),
     // this is needed in webpack 2 for minifying CSS
     new webpack.LoaderOptionsPlugin({
       minimize: true
